@@ -7,7 +7,8 @@
         "microphone": "*",
         "Huskylens": "github:dfrobot/pxt-dfrobot_huskylens#v2.0.7",
         "datalogger": "*",
-        "maqueenPlusV2": "github:dfrobot/pxt-dfrobot_maqueenplus_v20#v2.2.29"
+        "maqueenPlusV2": "github:dfrobot/pxt-dfrobot_maqueenplus_v20#v2.2.29",
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6"
     },
     "files": [
         "main.blocks",

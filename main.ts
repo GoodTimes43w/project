@@ -1,18 +1,23 @@
+let Block_Pos_x = 0
+let Block_Pos_y = 0
 maqueenPlusV2.I2CInit()
 maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
 basic.pause(2500)
 maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
 basic.pause(1000)
-maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Forward, 50)
+let StartDetection = true
+maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Forward, huskylens.readeBox(1, Content1.xCenter))
 maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Backward, 50)
 basic.pause(3800)
-maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
-music.play(music.stringPlayable("G B A G C5 B A B ", 120), music.PlaybackMode.UntilDone)
 basic.forever(function () {
-    let DetectBlock = 0
-    if (DetectBlock) {
-    	
-    } else {
-    	
+    if (StartDetection) {
+        huskylens.initI2c()
+        huskylens.initMode(protocolAlgorithm.ALGORITHM_COLOR_RECOGNITION)
+        huskylens.writeName(1, "Red")
+        if (huskylens.isAppear(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
+            huskylens.initMode(protocolAlgorithm.ALGORITHM_OBJECT_RECOGNITION)
+            Block_Pos_y = huskylens.readeBox(1, Content1.xCenter)
+            Block_Pos_x = huskylens.readeBox(1, Content1.yCenter)
+        }
     }
 })
