@@ -8,3 +8,11 @@ maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.M
 basic.pause(5000)
 maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
 music.play(music.stringPlayable("C5 - B - A - G E ", 120), music.PlaybackMode.UntilDone)
+basic.forever(function () {
+    let DetectBlock = 0
+    if (DetectBlock) {
+    	
+    } else {
+    	
+    }
+})
