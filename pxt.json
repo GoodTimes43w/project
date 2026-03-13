@@ -8,7 +8,8 @@
         "Huskylens": "github:dfrobot/pxt-dfrobot_huskylens#v2.0.7",
         "datalogger": "*",
         "maqueenPlusV2": "github:dfrobot/pxt-dfrobot_maqueenplus_v20#v2.2.29",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6"
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6",
+        "huskylens2": "github:dfrobot/pxt-dfrobot_huskylensv2#v1.1.7"
     },
     "files": [
         "main.blocks",

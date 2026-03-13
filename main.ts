@@ -1,3 +1,5 @@
+let Turn_angle = 0
+let CurrentPos00 = 0
 let Block_Pos_x = 0
 let Block_Pos_y = 0
 maqueenPlusV2.I2CInit()
@@ -6,8 +8,8 @@ basic.pause(2500)
 maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
 basic.pause(1000)
 let StartDetection = true
-maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Forward, huskylens.readeBox(1, Content1.xCenter))
-maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Backward, 50)
+maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Forward, 25)
+maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Backward, 25)
 basic.pause(3800)
 basic.forever(function () {
     if (StartDetection) {
@@ -20,4 +22,10 @@ basic.forever(function () {
             Block_Pos_x = huskylens.readeBox(1, Content1.yCenter)
         }
     }
+})
+basic.forever(function () {
+    CurrentPos00 = 0
+})
+basic.forever(function () {
+    Turn_angle = CurrentPos00 - Block_Pos_x
 })
