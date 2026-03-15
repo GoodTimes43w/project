@@ -16,6 +16,7 @@ basic.forever(function () {
         huskylens.initI2c()
         huskylens.initMode(protocolAlgorithm.ALGORITHM_COLOR_RECOGNITION)
         huskylens.writeName(1, "Red")
+        huskylens.writeName(2, "Blue")
         if (huskylens.isAppear(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
             huskylens.initMode(protocolAlgorithm.ALGORITHM_OBJECT_RECOGNITION)
             Block_Pos_y = huskylens.readeBox(1, Content1.xCenter)
@@ -39,6 +40,16 @@ basic.forever(function () {
     if (Turn_angle > 0) {
         maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
         maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Backward, 100)
+    }
+})
+basic.forever(function () {
+    matrixLidarDistance.initialize(matrixLidarDistance.Addr.Addr4, matrixLidarDistance.Matrix.OBS)
+    matrixLidarDistance.setObstacleDistance(200)
+    matrixLidarDistance.getData()
+    if (matrixLidarDistance.obstacleSuggestion() == 1) {
+        maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
+    } else {
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
     }
 })
 basic.forever(function () {
