@@ -4,6 +4,9 @@ let Block_Pos_x = 0
 let Block_Pos_y = 0
 maqueenPlusV2.I2CInit()
 maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
+matrixLidarDistance.initialize(matrixLidarDistance.Addr.Addr4, matrixLidarDistance.Matrix.OBS)
+matrixLidarDistance.setObstacleDistance(200)
+matrixLidarDistance.getData()
 basic.forever(function () {
     let StartDetection = 0
     if (StartDetection) {
@@ -18,9 +21,6 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    matrixLidarDistance.initialize(matrixLidarDistance.Addr.Addr4, matrixLidarDistance.Matrix.OBS)
-    matrixLidarDistance.setObstacleDistance(200)
-    matrixLidarDistance.getData()
     if (matrixLidarDistance.obstacleSuggestion() == 1) {
         maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
     } else {
