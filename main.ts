@@ -16,7 +16,6 @@ basic.forever(function () {
         huskylens.initI2c()
         huskylens.initMode(protocolAlgorithm.ALGORITHM_COLOR_RECOGNITION)
         huskylens.writeName(1, "Red")
-        huskylens.writeName(2, "Blue")
         if (huskylens.isAppear(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
             huskylens.initMode(protocolAlgorithm.ALGORITHM_OBJECT_RECOGNITION)
             Block_Pos_y = huskylens.readeBox(1, Content1.xCenter)
