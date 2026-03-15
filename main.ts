@@ -29,3 +29,18 @@ basic.forever(function () {
 basic.forever(function () {
     Turn_angle = CurrentPos00 - Block_Pos_x
 })
+basic.forever(function () {
+    if (Turn_angle < 0) {
+        Turn_angle += 1
+    }
+})
+basic.forever(function () {
+    if (Turn_angle > 0) {
+        Turn_angle += -1
+    }
+})
+basic.forever(function () {
+    if (Turn_angle == 0) {
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
+    }
+})
