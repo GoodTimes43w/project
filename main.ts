@@ -1,3 +1,6 @@
+/**
+ * I think that we need to delete many of this code due to how unhelpful and not working it is and when we are ready to practice after school, we should look at the book and have it tell us what to do.
+ */
 let Turn_angle = 0
 let CurrentPos00 = 0
 let Block_Pos_x = 0
@@ -46,7 +49,24 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (Turn_angle == 0) {
+    if (Block_Pos_y == 0) {
         maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
+    }
+})
+basic.forever(function () {
+    if (Block_Pos_x < 0) {
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Backward, 100)
+    }
+})
+basic.forever(function () {
+    if (Block_Pos_x == 0) {
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
+    }
+})
+basic.forever(function () {
+    if (Block_Pos_x > 0) {
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Backward, 100)
     }
 })
