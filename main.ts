@@ -37,13 +37,13 @@ basic.forever(function () {
     Turn_angle = CurrentPos00 - Block_Pos_x
 })
 basic.forever(function () {
-    if (Turn_angle < 0) {
+    if (Turn_angle < -5) {
         maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
         maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Backward, 100)
     }
 })
 basic.forever(function () {
-    if (Turn_angle > 0) {
+    if (Turn_angle > 5) {
         maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.LeftMotor, maqueenPlusV2.MyEnumDir.Forward, 100)
         maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.RightMotor, maqueenPlusV2.MyEnumDir.Backward, 100)
     }
