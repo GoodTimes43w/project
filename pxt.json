@@ -9,7 +9,8 @@
         "datalogger": "*",
         "maqueenPlusV2": "github:dfrobot/pxt-dfrobot_maqueenplus_v20#v2.2.29",
         "neopixel": "github:microsoft/pxt-neopixel#v0.7.6",
-        "huskylens2": "github:dfrobot/pxt-dfrobot_huskylensv2#v1.1.7"
+        "huskylens2": "github:dfrobot/pxt-dfrobot_huskylensv2#v1.1.7",
+        "midi": "github:microsoft/pxt-midi#v2.2.0"
     },
     "files": [
         "main.blocks",
